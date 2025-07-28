@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03_CSS 적용방식.html</title>
+
+    <style>
+        .description {
+            color: salmon;
+        }
+    </style>
+
+    <style>
+        .description {
+            color: aqua;
+        }
+    </style>
+    <link rel="stylesheet" href="./stylesheets/css03.css">
+</head>
+<body>
+    <h3>#웹 페이지에 CSS를 적용하는 방법 3가지</h3>
+
+    <dl>
+        <dt style="color: green;">1. inline CSS (해당 요소의 스타일 attribute 사용하기)</dt>
+        <dd>
+            - 해당 요소에 style 속성을 사용하여 CSS를 적용하는 방법 <br>
+            - CSS 적용 순위가 가장 높다 <br>
+            - 해당 요소에만 적용되며, 다른 요소에는 영향을 주지 않는다 <br>
+            - 예시: <span style="color: red;">이 텍스트는 빨간색입니다.</span> <br>
+            - 장점: 빠르게 적용 가능 <br>
+            - 단점: 유지보수 어려움, 재사용 불가
+        </dd>
+        <dt>2. internal CSS (파일 내부의 CSS)</dt>
+        <dd class="description">
+            - HTML 문서의 head 태그 안에 style 태그를 사용하여 CSS를 작성하는 방법 <br>
+            - 해당 HTML 문서에만 적용되며, 다른 문서에는 영향을 주지 않는다 <br>
+            - 우선순위는 나중에 작성한 스타일시트가 우선 적용된다 <br>
+            - 예시: 
+            &lt;style&gt;
+                body {
+                    background-color: lightblue;
+                }
+            &lt;style&gt; <br>
+            - 장점: 해당 문서에만 적용되어 관리가 용이 <br>
+            - 단점: 다른 문서에서 재사용 불가
+        </dd>
+        <dt>3. external CSS</dt>
+        <dd>
+            - 별도의 CSS 파일을 만들어 HTML 문서와 연결하는 방법 <br>
+            - 여러 HTML 문서에서 동일한 CSS 파일을 참조할 수 있어 재사용이 용이하다 <br>
+            - CSS 적용 순위: inline > internal(나중에 작성된 style이 우선) > external <br>
+            - 예시: 
+            &lt;link rel="stylesheet" href="styles.css"&gt; <br>
+            - 장점: 유지보수 용이, 재사용 가능 <br>
+            - 단점: 외부 파일을 불러오는 시간이 필요하여 초기 로딩 속도에 영향을 줄 수 있다
+        </dd>
+    </dl>
+
+</body>
+</html>

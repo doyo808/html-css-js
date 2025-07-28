@@ -1,0 +1,84 @@
+#book_info {
+    width: 330px;
+    background-color:linen;
+}
+
+#book_info > div {
+    float: left;
+}
+
+
+.badge_list_box {
+    width: 100%;
+    line-height: 1.6em;
+    user-select: none;
+}
+.badge_list_box > b {
+    font-weight: 400;
+    border: solid 1px black;
+    font-size: 0.8em;
+    padding: 1px 3px;
+    border-radius: 5px;
+}
+.badge_list_box > b.badge_line_navy {
+    color: slateblue;
+    border-color: slatebule;
+}
+.badge_list_box > b.badge_line_gray {
+    color: gray;
+    border-color: gray;
+}
+
+
+
+
+
+.price_box {
+    width: 100%;
+    margin: 30px 0;
+    word-spacing: 0.3em;
+}
+.price_box > b.percent {
+    color: #4DAC27;
+    font-size: 1.4em;
+}
+.price_box > b.sale_price {
+    font-size: 1.4em;
+}
+.price_box > b.price {
+    color:gray;
+    text-decoration: line-through;
+    font-weight: 400;
+    font-size: 0.8em;
+    margin-left: -5px;
+}
+
+
+
+
+.point_box {
+    width: 100%;
+    padding: 15px 0;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+}
+.point_box > .point_label {
+    float: left;
+}
+.point_box > .point_text {
+    float: right;
+}
+.point_box > .point_text > img {
+    height: 1.5em;
+    vertical-align: -6px;
+    margin-left: 7px;
+    margin-right: 5px;
+}
+.point_box > .point_text > b {
+    color: #4DAC27;
+}
+.point_box::after {
+    display: block;
+    clear: both;
+    content: "";
+}

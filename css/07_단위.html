@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07_단위.html</title>
+    <link rel="stylesheet" href="./stylesheets/css07.css">
+</head>
+<body>
+    
+    <h3># 절대 길이 단위</h3>
+
+    <ul>
+        <li>절대 길이 단위는 고정된 크기를 가지며, 화면 크기와 무관하게 동일한 크기를 유지한다</li>
+        <li>주로 인쇄물이나 고정된 크기의 요소에 사용된다</li>
+
+        <li>px: 픽셀 단위, 화면의 픽셀 수를 기준으로 함</li>
+        <li>pt: 포인트 단위, 1pt는 1/72인치</li>
+        <li>cm: 센티미터 단위</li>
+        <li>mm: 밀리미터 단위</li>
+        <li>in: 인치 단위, 1in은 2.54cm</li>
+    </ul>
+
+    <div class="abs-units" style="width: 100px;">100px</div>
+    <div class="abs-units" style="width: 50mm;">50mm</div>
+    <div class="abs-units" style="width: 5cm;">5cm</div>
+    <div class="abs-units" style="width: 5in;">5in</div>
+
+
+
+    <h3># 상대 길이 단위</h3>
+
+    <ul>
+        <li>상대 길이 단위는 부모 요소나 뷰포트 크기에 따라 크기가 변한다</li>
+        <li>반응형 디자인에 유용하며, 다양한 화면 크기에 적응할 수 있다</li>
+
+        <li>%: 부모 요소의 크기에 대한 백분율로 계산됨</li>
+        <li>em: 현재 요소의 font-size 값에 비례한 크기 설정</li>
+        <li>rem: 루트 요소(html)의 font-size 값에 비례한 크기 설정</li>
+        <li>vw: 뷰포트 너비의 1%를 기준으로 함</li>
+        <li>vh: 뷰포트 높이의 1%를 기준으로 함</li>
+    </ul>
+
+    <div class="rel-units" style="width: 50%;">50%</div>
+    <div class="rel-units" style="width: 10em; font-size: 20px">10em</div>
+    <div class="rel-units" style="width: 10rem">10rem</div>
+    <div class="rel-units" style="width: 20vw;">20vw</div>
+    <div class="rel-units" style="width: 20vh;">20vh</div>
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+html {
+    font-size: 62.5%;
+    /*
+        1rem = 10px
+        rem 단위는 html의 font-size를 기준으로 한다.
+        즉, html의 font-size가 62.5%이면 1rem은 10px이 된다.
+    */
+}
+
+.abs-units, .rel-units {
+    box-sizing: border-box;
+    border: solid 1px black;
+    padding: 3px;
+}

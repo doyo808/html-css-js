@@ -1,0 +1,96 @@
+div {
+    border: solid 3px black;
+    height: 250px;
+    margin-bottom: 50px;
+}
+
+div:first-of-type {
+    background-image: url(../images/사과.png);
+
+    /*
+        # background-size
+        설정안함 : 원본 이미지 크기를 사용한다
+        contain : 해당 요소안에 이미지가 모두 포함될 수 있도록 해준다
+        cover : 해당 요소를 모두 채울 수 있도록 해준다
+        none : 이미지 크기를 변경하지 않는다
+        scale : 이미지 크기를 변경한다
+        auto : 이미지 크기를 변경하지 않는다
+        initial : 기본값으로 설정한다
+        inherit : 부모 요소의 속성을 상속받는다
+        unset : 속성을 제거한다
+        revert : 이전 값으로 되돌린다
+        revert-layer : 이전 레이어의 값으로 되돌린다
+    */
+    background-size: contain;
+    background-size: 150px 30mm;
+
+    /*
+        # background-repeat
+        no-repeat : 반복하지 않는다
+        repeat : 반복한다
+        repeat-x : 가로 방향으로만 반복한다
+        repeat-y : 세로 방향으로만 반복한다
+        space : 이미지가 요소를 채우도록 반복하되, 이미지 사이에 공간을 둔다
+        round : 이미지가 요소를 채우도록 반복하되, 이미지 크기를 조정하여 공간을 없앤다
+    */
+    background-repeat: repeat-x;
+    
+    /*
+        # background-position
+        left : 왼쪽에 위치한다
+        right : 오른쪽에 위치한다
+        top : 위쪽에 위치한다
+        bottom : 아래쪽에 위치한다
+        center : 가운데에 위치한다
+        x% y% : x축과 y축의 백분율로 위치를 지정한다
+        xpx ypx : x축과 y축의 픽셀 단위로 위치를 지정한다
+    */
+    background-position: center;
+
+    /*
+        # background-attachment
+        scroll : 스크롤 시 배경 이미지가 함께 스크롤된다
+        fixed : 배경 이미지가 고정되어 스크롤되지 않는다
+        local : 요소 내부에서 스크롤 시 배경 이미지가 함께 스크롤된다
+    */
+
+}
+
+div:nth-of-type(2) {
+    background-image: url(../images/사과_마녀.jpg);
+    background-size: contain;
+}
+
+div:nth-of-type(3) {
+    border: groove 3px red;
+    width: 500px;
+    margin: 0 auto;
+
+    background-image: url(../images/사과_백설공주_마녀.png);
+    background-size: 300px 200px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+div:nth-of-type(4) {
+    height: 500px;
+    width: 300px;
+    margin: 0 auto;
+    margin-top: 50px;
+
+    background-image: url(../images/사과_백설공주.png);
+    background-size: 200px 200px;
+    background-repeat: repeat-y;
+    background-position: center;
+}
+
+#cafe-button {
+    background-image: url("../images/sp_main.png");
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+    border: none;
+    background-color: blanchedalmond;
+    width: 80px;
+    height: 80px;
+    background-position: -85px -440px;
+}

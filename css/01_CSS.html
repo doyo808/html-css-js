@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01_CSS.html</title>
+    <style>
+        /* CSS 문법이 적용되는 영역 */
+        
+        /*
+            선택자 {
+                디자인속성 : 디자인값;
+            }
+            선택자: 어떤 HTML 요소에 디자인을 적용할 것인지 선택하는 부분
+            디자인속성: 어떤 디자인을 적용할 것인지 지정하는 부분
+            디자인값: 해당 디자인속성에 적용할 값을 지정하는 부분
+            예시: h1 { color: red; }
+        */ 
+        h3 {
+            color: red;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <h3># CSS (Cascading Style Sheet)</h3>
+
+    <ul>
+        <li>CSS는 해당 웹페이지의 디자인에 대한 스타일시트를 작성하기 위한 문법이다</li>
+        <li>스타일시트는 해당 웹 페이지에 있는 특정 요소가 어떻게 그려져야 하는지를 정의해둔다</li>
+        <li>CSS는 HTML과 분리되어 작성되며, HTML 문서에 링크를 통해 연결된다</li>
+        <li>CSS는 HTML 문서의 head 태그 안에 link 태그를 사용하여 연결한다</li>
+        <li>CSS는 HTML 문서의 body 태그 안에 style 태그를 사용하여 작성할 수도 있다</li>
+        <li>
+            웹 브라우저는 html을 확인하여 웹 페이지의 구조(DOM: Document Object Model)를 확인한 후
+            스타일 시트를 보면서 해당 요소를 어떻게 그려야 할지 판단하여 그린다
+        </li>
+        <li>
+            스타일 시트로 모든 요소의 디자인을 원하는대로 변경할 수 있기 때문에
+            HTML 태그에 기본적으로 설정되어 있는 디자인은 거의 의미가 없고
+            해당 HTML태그는 해당 태그 이름에 해당하는 의미만 가지게 된다
+        </li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,100 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin-bottom: 100px;
+}
+
+.article {
+    border: solid 3px black;
+    padding: 10px;
+}
+
+.article-img {
+    width: 300px;
+    height: auto;
+}
+
+.float-left {
+    float: left;
+    margin-right: 20px;
+    margin-top: 20px;
+}
+
+.float-right {
+    float: right;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+#float-box1 {
+    border: 1px solid black;
+}
+
+#float-box1 > img {
+    border: 1px solid black;
+    width: 200px;
+    height: auto;
+}
+
+#float-image1 {
+    float: left;
+}
+
+#float-image2 {
+    float: left;
+}
+
+
+#float-box2 > div {
+    float: left;
+    color: black;
+    font-size: 50px;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+#float-box2 > div:first-child {
+    background-color: salmon;
+    height: 150px;
+    width: 100%;
+    line-height: 150px;
+    border-radius: 10px;
+}
+
+#float-box2 > div:nth-child(2) {
+    background-color: linen;
+    height: 500px;
+    width: 15%;
+    line-height: 500px;
+}
+
+#float-box2 > div:nth-child(3) {
+    background-color: peru;
+    height: 500px;
+    width: 70%;
+    line-height: 500px;
+}
+
+#float-box2 > div:nth-child(4) {
+    background-color: darkcyan;
+    height: 500px;
+    width: 15%;
+    line-height: 500px;
+}
+
+#float-box2 > div:nth-child(5) {
+    background-color: cornflowerblue;
+    height: 150px;
+    width: 100%;
+    line-height: 150px;
+}
+
+/* float을 clear하기 위해 ::after 가상요소를 사용할 수 있다 */
+#float-box2::after {
+    display: block;
+    clear: both;
+    content: "";
+}

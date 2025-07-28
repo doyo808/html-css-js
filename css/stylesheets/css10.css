@@ -1,0 +1,34 @@
+[id^="font"] {
+    font-size: 30px;
+    padding: 5px;
+    padding-left: 50px;
+}
+
+#font-test1 {
+    padding-top: 100px;
+    font-family: '궁서체', '맑은 고딕', '바탕체', sans-serif;
+    font-optical-sizing: auto;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+#font-test2 {
+    font-family: "Oswald", '궁서체', '맑은 고딕', '바탕체', sans-serif;
+    font-optical-sizing: auto;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+#font-test3 {
+    font-family: "Diphylleia", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+#font-test4 {
+    font-family: "IM Fell English SC", serif;
+    font-weight: 400;
+    font-style: normal;
+}

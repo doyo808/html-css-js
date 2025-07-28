@@ -1,0 +1,67 @@
+.margin-test-box, [id*="padding-box"] {
+    width: 500px;
+    height: 200px;
+    border: solid 3px black;
+    font-size: 50px;
+    text-align: center;
+}
+
+.margin-test-box:first-of-type {
+    margin-left: 50px;
+    margin-bottom: 30px;
+    margin-top: 70px;
+}
+
+.margin-test-box:nth-of-type(2) {
+    margin: 100px auto;
+    margin-top: 30px;
+}
+
+.margin-test-box:nth-of-type(3) {
+    margin: 30px 150px 50px 100px;
+}
+
+
+[id*="padding-box"] {
+    font-size: 1.0rem;
+    text-align: justify;
+}
+
+#padding-box1 {
+    padding: 50px;
+}
+
+#padding-box2 {
+    padding: 50px 100px;
+}
+
+body {
+    border: solid 1px black;
+}
+
+#box1 {
+    box-sizing:content-box;
+    /* 
+        content-box는 기본값
+        width, height는 content 영역의 크기를 의미한다.
+        padding, border, margin은 별도로 지정해야 한다.
+    */
+    border: solid 10px black;
+    width: 100px;
+    height: 100px;
+    padding: 30px;
+    margin: 10px auto;
+}
+
+#box2 {
+    /* 
+        box-sizing: border-box는
+        width, height가 content 영역 + padding + border를 포함한 크기를 의미한다.
+    */
+    box-sizing: border-box;
+    border: solid 15px black;
+    width: 100px;
+    height: 100px;
+    padding: 30px;
+    margin: 10px auto;
+};

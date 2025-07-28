@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>14_Float.html</title>
+    <link rel="stylesheet" href="./stylesheets/css14.css">
+</head>
+<body>
+    
+    <h3># Float</h3>
+
+    <ul>
+        <li>다른 내용들이 float이 설정된 요소를 비켜가게 만드는 속성</li>
+        <li>float이 설정된 요소는 냇가에 박혀있는 돌 같은 느낌이 된다</li>
+    </ul>
+
+    <h5># float: left</h5>
+    <div class="article">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus optio ipsum numquam maiores cumque, impedit sunt amet ab aliquid reiciendis, aut nostrum earum rerum molestiae nihil animi libero quasi sequi?
+        <img class="article-img float-left" src="./images/sp_main.png" alt="사과">
+        Illo perspiciatis vitae similique nesciunt quaerat a libero, fugit dolor doloremque reprehenderit nemo repudiandae suscipit perferendis omnis, itaque magni ipsam quibusdam modi veniam eveniet? Minima nemo consequuntur aut dolores perspiciatis?
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi laborum, tempore iusto labore deleniti praesentium sunt voluptates eveniet. Illo consequuntur suscipit praesentium debitis, laudantium impedit eius et incidunt repellendus ipsum!
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque, illum nihil reiciendis, beatae mollitia error, id nemo cupiditate facilis ipsum atque vitae consequatur quis eveniet ad rem sit sunt praesentium!
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione voluptatem, tempore, ipsa dolorem eligendi ad commodi aliquid distinctio quae eos soluta iusto doloribus numquam qui? Vel atque dolorum voluptatem nulla.
+    </div>
+    
+    <h5># float: right</h5>
+    <div class="article">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus optio ipsum numquam maiores cumque, impedit sunt amet ab aliquid reiciendis, aut nostrum earum rerum molestiae nihil animi libero quasi sequi?
+        <img class="article-img float-right" src="./images/sp_main.png" alt="사과">
+        Illo perspiciatis vitae similique nesciunt quaerat a libero, fugit dolor doloremque reprehenderit nemo repudiandae suscipit perferendis omnis, itaque magni ipsam quibusdam modi veniam eveniet? Minima nemo consequuntur aut dolores perspiciatis?
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi laborum, tempore iusto labore deleniti praesentium sunt voluptates eveniet. Illo consequuntur suscipit praesentium debitis, laudantium impedit eius et incidunt repellendus ipsum!
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Doloremque, illum nihil reiciendis, beatae mollitia error, id nemo cupiditate facilis ipsum atque vitae consequatur quis eveniet ad rem sit sunt praesentium!
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione voluptatem, tempore, ipsa dolorem eligendi ad commodi aliquid distinctio quae eos soluta iusto doloribus numquam qui? Vel atque dolorum voluptatem nulla.
+    </div>
+
+    <h5> # 내용의 양이 충분하지 않은 경우 float요소가 박스를 벗어나게 된다 </h5>
+    <div class="article">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus optio ipsum numquam maiores cumque, impedit sunt amet ab aliquid reiciendis, aut nostrum earum rerum molestiae nihil animi libero quasi sequi?
+        <img class="article-img float-left" src="./images/sp_main.png" alt="사과">
+        Illo perspiciatis vitae similique nesciunt quaerat a libero, fugit dolor doloremque reprehenderit nemo repudiandae suscipit perferendis omnis, itaque magni ipsam quibusdam modi veniam eveniet? Minima nemo consequuntur aut dolores perspiciatis
+    </div>
+
+    <h5>그러면 어떻게 해야할까?</h5>
+
+    <h5>
+        # 내용의 양이 충분하지 않은 경우 float요소가 박스를 벗어나게 된다<br>
+        (해당 방향 clear를 통해 해결할 수 있다)
+    </h5>
+    <div class="article">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus optio ipsum numquam maiores cumque, impedit sunt amet ab aliquid reiciendis, aut nostrum earum rerum molestiae nihil animi libero quasi sequi?
+        <img class="article-img float-left" src="./images/sp_main.png" alt="사과">
+        Illo perspiciatis vitae similique nesciunt quaerat a libero, fugit dolor doloremque reprehenderit nemo repudiandae suscipit perferendis omnis, itaque magni ipsam quibusdam modi veniam eveniet? Minima nemo consequuntur aut dolores perspiciatis
+        <div style="clear: left;"></div>
+    </div>
+
+    <h3>
+        <li>clear: left - 해당 요소의 왼쪽에 더 이상 float요소 올 수 없다 </li>
+        <li>clear: right - 해당 요소의 오른쪽에 더 이상 float요소 올 수 없다 </li>
+        <li>clear: both - 해당 요소의 양쪽에 더 이상 float요소 올 수 없다 </li>
+    </h3>
+    <h5>
+        # 내용의 양이 충분하지 않은 경우 float요소가 박스를 벗어나게 된다2<br>
+        (float 요소들이 겹치는 것도 clear로 해결할 수 있다)
+    </h5>
+    <div class="article">
+        <img class="article-img float-left" src="./images/sp_main.png" alt="사과">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus optio ipsum numquam maiores cumque, impedit sunt amet ab aliquid reiciendis, aut nostrum earum rerum molestiae nihil animi libero quasi sequi?
+        <div style="clear: both;"></div>
+        <img class="article-img float-right" src="./images/sp_main.png" alt="사과">
+        Illo perspiciatis vitae similique nesciunt quaerat a libero, fugit dolor doloremque reprehenderit nemo repudiandae suscipit perferendis omnis, itaque magni ipsam quibusdam modi veniam eveniet? Minima nemo consequuntur aut dolores perspiciatis
+        <div style="clear: both;"></div>
+    </div>
+
+    <h3># float 활용하기</h3>
+    <h5># 여러 요소를 같은 방향 float으로 설정하여 쌓을 수 있다</h5>
+    <div id="float-box1">
+        <img id="float-image1" src="./images/사과.png">
+        <img id="float-image2" src="./images/사과.png">
+        <div style="clear:both"></div>
+    </div><br>
+
+
+
+    <h5># 이를 활용하여 float을 통해 전체 레이아웃을 구성할 수 있다</h5>
+    <div id="float-box2">
+        <div class="float-item">1</div>
+        <div class="float-item">2</div>
+        <div class="float-item">3</div>
+        <div class="float-item">4</div>
+        <div class="float-item">5</div>
+    </div>
+</body>
+</html>

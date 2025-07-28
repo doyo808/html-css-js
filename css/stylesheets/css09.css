@@ -1,0 +1,47 @@
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.8rem;
+    padding: 5rem;
+}
+
+[id^="shadow"] {
+    font-size: 70px;
+    padding: 5px;
+}
+
+#shadow1 {
+    color: white;
+    text-shadow: 1px 3px 1px black;
+}
+
+#shadow2 {
+    color: white;
+    text-shadow: 1px 1px 3px black,
+                 2px 2px 5px gray;
+}
+
+#shadow3 {
+    color: white;
+    text-shadow: 2px 2px purple,
+                 4px 4px rgb(151, 4, 151),
+                 6px 6px rgb(182, 8, 182),
+                 8px 8px rgb(201, 13, 201),
+                 10px 10px rgb(224, 26, 224);
+}
+
+#shadow4 {
+    box-sizing: border-box;
+    width: 500px;
+    height: 500px;
+    box-shadow:  2px 2px purple,
+                 4px 4px rgb(151, 4, 151),
+                 6px 6px rgb(182, 8, 182),
+                 8px 8px rgb(201, 13, 201),
+                 10px 10px rgb(224, 26, 224);
+    margin: 50px;
+    background-color: beige;
+    padding: 10px;
+}

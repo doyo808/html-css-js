@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08_텍스트.html</title>
+    <link rel="stylesheet" href="./stylesheets/css08.css">
+</head>
+<body>
+    
+
+    <h3># text-align (텍스트 정렬)</h3>
+    <ul>
+        <li>left: 왼쪽 정렬</li>
+        <li>right: 오른쪽 정렬</li>
+        <li>center: 가운데 정렬</li>
+        <li>justify: 양쪽 정렬 (좌우 폭맞춤)</li>
+    </ul>
+
+    <div id="ex1">
+        <h5>text-align:left</h5>
+        <p class="text-align-test" style="text-align: left;">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis voluptatibus voluptate vitae distinctio et accusamus dolore at ipsa amet, sit ipsam, autem quo quia totam repellat laborum. Aliquid, accusantium provident?
+        </p>
+        <h5>text-align:right</h5>
+        <p class="text-align-test" style="text-align: right;">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ratione et qui maiores explicabo in fugiat molestiae dolorum similique impedit, laudantium blanditiis eos, accusantium, assumenda asperiores. Quaerat quo nobis repellendus? Recusandae.
+        </p>
+        <h5>text-align:center</h5>
+        <p class="text-align-test" style="text-align: center;">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Enim cum natus consequatur! Voluptates repudiandae deleniti doloremque dicta similique eum voluptatibus veniam ex, necessitatibus iure assumenda cupiditate provident molestias, explicabo exercitationem!
+        </p>
+        <h5>text-align:justify</h5>
+        <p class="text-align-test" style="text-align: justify;">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium placeat, eum, deleniti perspiciatis ratione nisi inventore recusandae, consequuntur officia ad sit! Quod recusandae ut vel quibusdam aut eaque illo natus?
+        </p>
+    </div>
+
+
+
+
+    <h3># letter-spacing: 글자 간격 설정</h3>
+    <dl>
+        <dt>letter-spacing: 10px</dt>
+        <dd style="letter-spacing: 10px;">Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur</dd>
+        
+        <dt>letter-spacing: 0</dt>
+        <dd style="letter-spacing: 0;">Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur</dd>
+        
+        <dt>letter-spacing: -5px</dt>
+        <dd style="letter-spacing: -5px;">Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet consectetur </dd>
+    </dl>
+
+
+
+
+    <h3># word-spacing: 단어 간격 설정 (공백 설정)</h3>
+    <dl>
+        <dt>word-spacing: 20px</dt>
+        <dd style="word-spacing: 20px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur</dd>
+        
+        <dt>word-spacing: 0</dt>
+        <dd style="word-spacing: 0;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur</dd>
+        
+        <dt>word-spacing: -5px</dt>
+        <dd style="word-spacing: -5px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur</dd>
+    </dl>
+
+
+
+    <h3># line-height: 줄 간격 설정</h3>
+    <dl>
+        <dt>line-height: 30px</dt>
+        <dd style="line-height: 30px; border: solid 3px black; padding: 10px">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi soluta eius aperiam atque possimus, animi dolores dolor. Aspernatur, a cupiditate praesentium illum iusto blanditiis totam et pariatur vel impedit labore.</dd>
+        
+        <!-- 단위 없으면 font-size의 배수이다 -->
+        <dt>line-height: 2</dt>
+        <dd style="line-height: 2; border: solid 3px black; padding: 10px">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi soluta eius aperiam atque possimus, animi dolores dolor. Aspernatur, a cupiditate praesentium illum iusto blanditiis totam et pariatur vel impedit labore.</dd>
+        
+        <dt>line-height: 0.5</dt>
+        <dd style="line-height: 0.5; border: solid 3px black; padding: 10px">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi soluta eius aperiam atque possimus, animi dolores dolor. Aspernatur, a cupiditate praesentium illum iusto blanditiis totam et pariatur vel impedit labore.</dd>
+    </dl>
+
+
+
+    <h3># text-indent: 첫 줄 들여쓰기</h3>
+    <p style="border: solid 1px black; padding: 10px; text-indent: 2rem;">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi soluta eius aperiam atque possimus, animi dolores dolor. Aspernatur, a cupiditate praesentium illum iusto blanditiis totam et pariatur vel impedit labore.
+    </p>
+
+
+
+    <h3># white-space: 자동 줄바꿈 설정</h3>
+    <ul>
+        <li>normal: 기본값, 자동 줄바꿈</li>
+        <li>nowrap: 줄바꿈 없음, 한 줄로 표시</li>
+        <li>pre: 공백과 줄바꿈을 그대로 유지</li>
+        <li>pre-wrap: 공백은 유지하되 자동 줄바꿈</li>
+        <li>pre-line: 공백은 무시하고 줄바꿈은 유지</li>
+    </ul>
+
+    <p style="border: solid 1px black; padding: 10px; white-space: nowrap;">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi soluta eius aperiam atque possimus, animi dolores dolor. Aspernatur, a cupiditate praesentium illum iusto blanditiis totam et pariatur vel impedit labore.
+    </p>
+
+
+
+    <h3>overflow: 요소의 범위를 벗어나는 내용에 대한 설정</h3>
+    <ul>
+        <li>visible: 기본값, 넘치는 내용이 보임</li>
+        <li>hidden: 넘치는 내용이 보이지 않음</li>
+        <li>scroll: 넘치는 내용이 스크롤 가능</li>
+        <li>auto: 필요할 때만 스크롤 표시</li>
+    </ul>
+
+    <h5>overflow-x: scroll</h5>
+    <p style="border: solid 1px black; padding: 10px; overflow-x: scroll;">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi soluta eius aperiam atque possimus, animi dolores dolor. Aspernatur, a cupiditate praesentium illum iusto blanditiis totam et pariatur vel impedit labore.
+    </p>
+
+    <h5>overflow-x: hidden</h5>
+    <p style="border: solid 1px black; padding: 10px; overflow-x: hidden;">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi soluta eius aperiam atque possimus, animi dolores dolor. Aspernatur, a cupiditate praesentium illum iusto blanditiis totam et pariatur vel impedit labore.
+    </p>
+
+    <h5>overflow-y: scroll</h5>
+    <p style="border: solid 1px black; width: 200px; height: 100px; overflow-y: scroll;">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi soluta eius aperiam atque possimus, animi dolores dolor. Aspernatur, a cupiditate praesentium illum iusto blanditiis totam et pariatur vel impedit labore.
+    </p>
+
+
+
+    <h3># line-height 활용하기</h3>
+    <div id="fancy-button"
+        style=  "background-color: red;
+                color: white;
+                font-size:3rem;
+                width:120px;
+                height:80px;
+                text-align: center;
+                line-height: 70px;
+                user-select: none;
+                cursor: pointer;
+                border-radius: 10px;
+                border: solid 5px black;">
+        Click!
+    </div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.8rem;
+    padding-bottom: 10rem;
+}
+
+.text-align-test {
+    border: solid 1px black;
+    padding: 2rem;
+    width: 800px;
+}
+
+#ex1 {
+    padding-left: 20px;
+}
+
+#line-height-test {
+    border: solid 3px black;
+    padding: 10px;
+}
