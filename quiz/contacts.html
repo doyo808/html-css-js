@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contacts</title>
+    <link rel="stylesheet" href="./contacts.css">
+</head>
+<body>
+    <h1 id="home"># 연락처 3명의 이름 목록</h1>
+    <ul>
+        <li><a href="./contacts.html#d1">홍길동</a></li>
+        <li><a href="./contacts.html#d2">김보험</a></li>
+        <li><a href="./contacts.html#d3">왕자바</a></li>
+    </ul>
+    <a href="./contacts.html#form">연락처 등록</a>
+    <div class="blank"></div>
+
+    <h3 id="d1"># 홍길동의 상세정보</h3>
+        <table class="detail">
+            <tr>
+                <th>이름</th>
+                <th>별명</th>
+                <th>전화번호</th>
+                <th>이메일</th>
+                <th>그룹</th>
+                <th>직장 정보</th>
+                <th>생일</th>
+                <th>메모</th>
+            </tr>
+
+            <tr>
+                <td>홍길동</td>
+                <td>의적</td>
+                <td>010-1452-8282</td>
+                <td>hong123@gmail.com</td>
+                <td>친구</td>
+                <td>한진택배</td>
+                <td>5/5</td>
+                <td>5,000원 빌림</td>
+            </tr>
+
+            <tr>
+                <td colspan="8">
+                    <img src="./profile_image/profile1.jpg" 
+                         alt="프로필 이미지1"
+                         width="300px" height=auto;>
+                </td>
+            </tr>
+        </table>
+        <a href="contacts.html#home">홈으로</a>
+        <div class="blank"></div>
+
+    <h3 id="d2"># 김보험의 상세정보</h3>
+        <table class="detail">
+            <tr>
+                <th>이름</th>
+                <th>별명</th>
+                <th>전화번호</th>
+                <th>이메일</th>
+                <th>그룹</th>
+                <th>직장 정보</th>
+                <th>생일</th>
+                <th>메모</th>
+            </tr>
+
+            <tr>
+                <td>김보험</td>
+                <td>꾀병</td>
+                <td>010-7564-7852</td>
+                <td>insurance12@naver.com</td>
+                <td>가족</td>
+                <td>kd손해보험</td>
+                <td>1/1</td>
+                <td>나한테 화났음</td>
+            </tr>
+
+            <tr>
+                <td colspan="8">
+                    <img src="./profile_image/profile2.jpg" 
+                         alt="프로필 이미지2"
+                         width="300px" height=auto;>
+                </td>
+            </tr>
+        </table>
+        <a href="contacts.html#home">홈으로</a>
+        <div class="blank"></div>
+
+    <h3 id="d3"># 왕자바의 상세정보</h3>
+        <table class="detail">
+            <tr>
+                <th>이름</th>
+                <th>별명</th>
+                <th>전화번호</th>
+                <th>이메일</th>
+                <th>그룹</th>
+                <th>직장 정보</th>
+                <th>생일</th>
+                <th>메모</th>
+            </tr>
+
+            <tr>
+                <td>왕자바</td>
+                <td>객체지향</td>
+                <td>010-5427-9171</td>
+                <td>javaKing@github.com</td>
+                <td>회사</td>
+                <td>kd아카데미</td>
+                <td>7/30</td>
+                <td>생일파티 계획 중</td>
+            </tr>
+
+            <tr>
+                <td colspan="8">
+                    <img src="./profile_image/profile3.jpg" 
+                         alt="프로필 이미지3"
+                         width="300px" height=auto;>
+                </td>
+            </tr>
+        </table>
+        <a href="contacts.html#home">홈으로</a>
+        <div class="blank"></div>
+
+
+
+    <h3 id="form"># 연락처 추가 폼</h3>
+    <form>
+        <table border="3" style="margin: 20px 0;">
+            <tr>
+                <th>분류</th>
+                <th>입력</th>
+            </tr>
+
+            <tr>
+                <th class="form_type">이름</th>
+                <td class="form_input">
+                    <input type="text" name="contact_name">
+                </td>
+            </tr>
+            <tr>
+                <th class="form_type">별명</th>
+                <td class="form_input">
+                    <input type="text" name="contact_nickname">
+                </td>
+            </tr>
+            <tr>
+                <th class="form_type">전화번호</th>
+                <td class="form_input">
+                    <input type="number" name="contact_phone" placeholder="숫자만 입력하세요.">
+                </td>
+            </tr>
+            <tr>
+                <th class="form_type">이메일</th>
+                <td class="form_input">
+                    <input type="email" name="contact_email">
+                </td>
+            </tr>
+            <tr>
+                <th class="form_type">그룹</th>
+                <td class="form_input">
+                    <select name="contact_group">
+                        <option value="family">가족</option>
+                        <option value="friend">친구</option>
+                        <option value="company">회사</option>
+                        <option value="etc">기타</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <th class="form_type">직장 정보</th>
+                <td class="form_input">
+                    <input type="text" name="contact_companyInfo">
+                </td>
+            </tr>
+            <tr>
+                <th class="form_type">생일</th>
+                <td class="form_input">
+                    <input type="date" name="contact_birthday">
+                </td>
+            </tr>
+            <tr>
+                <th class="form_type">메모</th>
+                <td class="form_input">
+                    <textarea name="contact_memo" rows="5" cols="30"></textarea>
+                </td>
+            </tr>
+
+            <tr>
+                <th colspan="2">
+                    <button type="submit">제출</button>
+                </th>
+            </tr>
+        </table>
+    </form>
+    <a href="./contacts.html#home">홈으로</a>
+</body>
+</html>

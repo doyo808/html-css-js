@@ -1,0 +1,308 @@
+.flex-box {
+    display: flex;
+    background-color:skyblue;
+    padding: 5px;
+    gap: 10px;
+    margin-bottom: 10px;
+    user-select: none;
+}
+
+.flex-box > * {
+    background-color: rgb(193, 223, 235);
+    width: 100px;
+    min-width: 90px;
+    height: 100px;
+    font-size: 30px;
+    text-align: center;
+    margin: 5px;
+}
+
+.flex-direction-row {
+    flex-direction: row;
+}
+.flex-direction-row-reverse {
+    flex-direction: row-reverse;
+}
+.flex-direction-column {
+    flex-direction: column;
+}
+.flex-direction-column-reverse {
+    flex-direction: column-reverse;
+}
+.flex-direction-column2 {
+    flex-direction: column;
+    height: 500px;
+}
+
+.align-items-start {
+    justify-content: space-around;
+    align-items: flex-start;
+    height: 300px;
+}
+.align-items-end {
+    justify-content: space-around;
+    align-items: flex-end;
+    height: 300px;
+}
+.align-items-baseline {
+    justify-content: space-around;
+    align-items: baseline;
+    height: 300px;
+}
+.align-items-stretch {
+    justify-content: space-around;
+    align-items: stretch;
+    height: 300px;
+}
+
+
+
+
+#mywebsite {
+    width: 1000px;
+    font-size: 25px;
+    color: white;
+}
+#mywebsite > header {
+    background-color: darkred;
+    height: 100px;
+}
+#mywebsite > nav {
+    display: flex;
+    background-color: darkslateblue;
+    height: 80px;
+    gap: 20px;
+    padding: 10px;
+}
+#mywebsite > nav > div {
+    background-color: darkcyan;
+    width: 80px;
+}
+#mywebsite > #main {
+    display: flex;
+    height: 550px;
+}
+#news_stand {
+    background-color:darkgray;
+    width: 855px;
+}
+
+#news_stand > section {
+    background-color: darkblue;
+    height: 57px;
+    width: 855px;
+}
+#mywebsite > #main > aside {
+    background-color:darkolivegreen;
+    height: 550px;
+    width: 145px;
+}
+#mywebsite > footer {
+    background-color:darkgoldenrod;
+    height: 100px;
+}
+
+/* 초기설정 */
+ * {
+     box-sizing: border-box;
+ }
+ body {
+    margin-bottom: 100px;
+ }
+
+#news_stand > article {
+    background-color: #FFF;
+    border: 3px solid #e3e5e8;
+    border-radius: 10px;
+    margin: 5px;
+    height: 446px;
+    width: 845px;
+    color: black;
+}
+
+/* 최상단바 */
+#news_stand > article #article_detail1 {
+    display: flex;
+    height: 50px;
+    line-height: 50px;
+    display: flex;
+    margin: 5px 20px;
+    font-size: 18px;
+    color: #838383;
+}
+.article_detail1_keyword + .article_detail1_keyword::before {
+    content: "/";
+    margin: 0 6px;
+    color: #e0e2e3;
+    display: inline-block;
+}
+#selected_keyword {
+    color: #080808;
+    font-weight: bold;
+}
+
+
+/* 종목탭 */
+#news_stand > article #article_detail2 {
+    display: flex;
+    flex-direction: row;
+    background-color: #f5f7f8;
+    border-radius: 10px;
+    height: 45px;
+    line-height: 35px;
+    margin: 0 20px;
+    padding: 5px 20px;
+    font-size: 15px;
+    gap: 2px;
+}
+.article_detail2_keyword1 {
+    color: #404040;
+}
+.article_detail2_keyword2 {
+    color: #101010;
+    font-weight: bold;
+    margin-left: auto;
+}
+#article_detail2 .article_detail2_keyword1 + .article_detail2_keyword1::before {
+  content: "·";
+  margin: 0 4px;
+  color: #d3d5d7;
+  display: inline-block;
+}
+
+
+/* 이미지, 상세뉴스 */
+#article_detail3 {
+    display: flex;
+    height: 240px;
+    margin: 18px 20px;
+}
+#article_detail3_left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 400px;
+}
+.article_detail3_left_card {
+    display: flex;
+}
+#이정후box {
+  width: 185px;
+  height: 105px;
+  overflow: hidden;
+  position: relative;
+  margin-right: 15px;
+}
+#이정후 {
+  position: absolute;
+  top: -137px;  /* y값을 반대로 */
+  left: -33px; /* x값을 반대로 */
+}
+.article_detail3_left_card_text {
+    display: flex;
+    flex-direction: column;
+    width: 175px;
+    padding-top: 15px;
+}
+.article_detail3_left_card_title {
+    display: block;
+    width: 175px;
+    font-size: 15px;
+}
+.article_detail3_left_card_link1 {
+    font-size: 13px;
+    color: #606060;
+}
+.article_detail3_left_card_link2 {
+    font-size: 13px;
+    color: #606060;
+}
+
+
+#손흥민box {
+  width: 185px;
+  height: 105px;
+  overflow: hidden;
+  position: relative;
+  margin-right: 15px;
+}
+#손흥민 {
+  position: absolute;
+  top: -257px;  /* y값을 반대로 */
+  left: -33px; /* x값을 반대로 */
+}
+
+
+
+
+#article_detail3_right {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 400px;
+}
+
+.article_detail3_right_line {
+    display: flex;
+    font-size: 16px;
+}
+.article_detail3_right_line2 {
+    color: #606060;
+    float: right;
+    margin-left: auto;
+    text-align: right;
+}
+
+
+/* 하단바 */
+#article_detail4 {
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    line-height: 35px;
+    border-top: 1px solid #e3e5e8;
+    font-size: 17px;
+    padding: 10px;
+}
+#article_detail4 > img {
+    width: 40px;
+    height: 40px;
+    margin: 0 20px;
+}
+#more_text {
+    margin: 0 5px;
+    color: #606060;
+}
+#sport_news_text {
+    color: #3a67ea;
+}
+#curr_page_text {
+    color: #606060;
+}
+#total_page_text {
+    color: #baafaf;
+}
+
+
+
+/* 버튼 */
+button {
+  position: relative;
+  background-color: #ffffff;
+  color: #1F65EF;
+  border: 1.5px solid #1F65EF;
+  border-radius: 2px;
+  width: 17px;
+  height: 15px;
+  font-size: 8px;
+  font-weight: bold;
+  padding: 0;
+  padding-top: 3px;
+  box-sizing: border-box;
+  margin-left: auto;
+
+  box-shadow: 1px 1px 0 white,
+              2px 2px 0 #1F65EF;
+}
+

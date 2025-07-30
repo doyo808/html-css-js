@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>16_flex.html</title>
+    <link rel="stylesheet" href="./stylesheets/css16.css">
+</head>
+<body>
+    
+    <h3># display: flex</h3>
+    <ul>
+        <li>해당 요소의 display 속성을 flex로 변경하면 flex-box가 된다</li>
+        <li>해당 박스 내부에 있는 자식 요소들은 자동적으로 flex-item이 된다</li>
+        <li>flex-box는 내부 자식 요소들의 크기를 유연하게 조절해준다</li>
+    </ul>
+
+    <div class="flex-box">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+    </div>
+
+    <h3># flex-direction property (flex-box로 설정된 요소에 적용)</h3>
+    <h5># flex-direction: row</h5>
+    <div class="flex-box flex-direction-row">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+    </div>
+    <h5># flex-direction: row-reverse</h5>
+    <div class="flex-box flex-direction-row-reverse">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+    </div>
+    <h5># flex-direction: column</h5>
+    <div class="flex-box flex-direction-column">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+    <h5># flex-direction: column-reverse</h5>
+    <div class="flex-box flex-direction-column-reverse">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+
+
+
+    <h3># justify-content property (flex-box로 설정된 요소에 적용)</h3>
+    <h5>justify-content:flex-end</h5>
+    <div class="flex-box flex-direction-row" style="justify-content:flex-end">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+    </div>
+    <h5>justify-content:center</h5>
+    <div class="flex-box flex-direction-row" style="justify-content:center">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+    </div>
+    <h5>justify-content:space-between</h5>
+    <div class="flex-box flex-direction-row" style="justify-content:space-between">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+    </div>
+    <h5>justify-content:space-around</h5>
+    <div class="flex-box flex-direction-row" style="justify-content:space-around">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+    </div>
+    <h5>justify-content:space-evenly</h5>
+    <div class="flex-box flex-direction-row" style="justify-content:space-evenly">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+    </div>
+    <hr>
+    <h5>justify-content:space-evenly(column)</h5>
+    <div class="flex-box flex-direction-column2" style="justify-content:space-evenly">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+
+
+
+
+    <h3>#align-items property (flex-box로 설정된 요소에 적용)</h3>
+    <div class="flex-box flex-direction-row align-items-start" style="justify-content:space-between">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+    </div>
+    <div class="flex-box flex-direction-row align-items-end" style="justify-content:space-between">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+    </div>
+    <h5># align-items-center</h5>
+    <h5># align-items-baseline</h5>
+    <!-- 높이가 다를 때 의미가 있다 -->
+    <div class="flex-box flex-direction-row align-items-baseline" style="justify-content:space-between">
+        <div style="height: 150px; line-height: 150px">1</div>
+        <div style="height: 130px; line-height: 130px">2</div>
+        <div style="height: 200px; line-height: 200px">3</div>
+        <div style="height: 50px; line-height: 50px">4</div>
+        <div style="height: 110px; line-height: 110px">5</div>
+    </div>
+    <h5># align-items-stretch</h5>
+    <div class="flex-box flex-direction-row align-items-stretch" style="height: 200px; gap: 10px;">
+        <div style="height: auto">1</div>
+        <div style="height: auto">2</div>
+        <div style="height: auto">3</div>
+        <div style="height: auto">4</div>
+        <div style="height: auto">5</div>
+    </div>
+
+
+
+
+    <h3># order property (flex-item으로 설정된 요소에 적용되는 속성)</h3>
+    <ul>
+        <li>flex-item들의 order속성 기본값은 0이다</li>
+        <li>order 속성값이 크면 뒤에 나오고 작으면 앞에 나온다</li>
+    </ul>
+    <div class="flex-box flex-direction-row">
+        <div>1</div>
+        <div>2</div>
+        <div style="order: 3;">3</div>
+        <div style="order: -1">4</div>
+        <div>5</div>
+    </div>
+    <h3># align-self property (flex-item으로 설정된 요소에 적용되는 속성)</h3>
+    <ul>
+        <li>각 flex-item들의 align-items 속성을 직접 설정할 수 있다</li>
+    </ul>
+
+    <div class="flex-box flex-direction-row align-items-start" style="justify-content:space-between">
+        <div style="align-self: flex-end">1</div>
+        <div>2</div>
+        <div style="align-self: flex-end">3</div>
+        <div style="align-self: center">4</div>
+        <div style="align-self: flex-end">5</div>
+    </div>
+
+
+    <h3># flex를 활용해 사이트 레이아웃 구성하기</h3>
+    <div id="mywebsite">
+        <header>사이트의 헤더 부분</header>
+        <nav>사이트 네비게이션
+            <div>사전</div>
+            <div>웹툰</div>
+            <div>메일</div>
+            <div>카페</div>
+            <div>블로그</div>
+        </nav>
+        <div id="main">
+            <div id="news_stand">
+                사이트의 메인 내용
+                <section>섹션</section>
+
+
+                <article>
+                    <div id="article_detail1">
+                        <span class="article_detail1_keyword"> 뉴스스탠드 · 언론사편집</span>
+                        <span class="article_detail1_keyword">엔터</span>
+                        <span id="selected_keyword" class="article_detail1_keyword">스포츠</span>
+                        <span class="article_detail1_keyword">경제</span>
+                        <span class="article_detail1_keyword">쇼핑투데이</span>
+                    </div>
+
+                    <div id="article_detail2">
+                        <span class="article_detail2_keyword1">야구</span>
+                        <span class="article_detail2_keyword1">해외야구</span>
+                        <span class="article_detail2_keyword1">축구</span>
+                        <span class="article_detail2_keyword1">해외축구</span>
+                        <span class="article_detail2_keyword1">농구</span>
+                        <span class="article_detail2_keyword1">배구</span>
+                        <span class="article_detail2_keyword1">N골프</span>
+                        <span class="article_detail2_keyword1">일반</span>
+                        <span class="article_detail2_keyword1">e스포츠</span>
+                        <span class="article_detail2_keyword1">아웃도어</span>
+
+                        <span class="article_detail2_keyword2">스포츠홈</span>
+                    </div>
+
+
+                    <div id="article_detail3">
+                        <div id="article_detail3_left">
+                            <div class="article_detail3_left_card">
+                                <div id="이정후box"><img id="이정후" src="./images/네이버스포츠.png" alt="네이버뉴스 스포츠란"></div>
+
+                                <div class="article_detail3_left_card_text">
+                                    <span class="article_detail3_left_card_title">'볼넷→삼진→볼넷→땅볼→</span>
+                                    <span class="article_detail3_left_card_title">9회 추격의 적시타' 이정...</span>
+                                    <div class="article_detail3_left_card_link">
+                                        <span class="article_detail3_left_card_link1">마이데일리</span>
+                                        <span class="article_detail3_left_card_link2">59분 전</span>
+                                        <button>16</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="article_detail3_left_card">
+                                <div id="손흥민box"><img id="손흥민" src="./images/네이버스포츠.png" alt="네이버뉴스 스포츠란"></div>
+
+                                <div class="article_detail3_left_card_text">
+                                    <span class="article_detail3_left_card_title">英 언론 "LAFC, 손흥민과 영</span>
+                                    <span class="article_detail3_left_card_title">입 협상 진행"...이적 초읽...</span>
+                                    <div class="article_detail3_left_card_link">
+                                        <span class="article_detail3_left_card_link1">헤럴드경제</span>
+                                        <span class="article_detail3_left_card_link2">21분 전</span>
+                                        <button>46</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="article_detail3_right">
+                            <div class="article_detail3_right_line">
+                                <span>'이럴 수가' 김혜성, 99마일 강속구에 ...</span>
+                                <span class="article_detail3_right_line2">·엑스포츠뉴스</span>
+                                <button>20</button>
+                            </div>
+                            <div class="article_detail3_right_line">
+                                <span>동점골 터뜨린 수원FC 싸박, K리그1 24...</span>
+                                <span class="article_detail3_right_line2">·스포츠월드</span>
+                                <button>14</button>
+                            </div>
+                            <div class="article_detail3_right_line">
+                                <span>조현주, 싱가포르 세계선수권 女 자유형 200...</span>
+                                <span class="article_detail3_right_line2">·OSEN</span>
+                                <button>9</button>
+                            </div>
+                            <div class="article_detail3_right_line">
+                                <span>이예원, 신설대회 오로라월드 레이디스 ...</span>
+                                <span class="article_detail3_right_line2">·국민일보</span>
+                                <button>9</button>
+                            </div>
+                            <div class="article_detail3_right_line">
+                                <span>3대3 여자농구 대표팀 전병준 감독 재선...</span>
+                                <span class="article_detail3_right_line2">·연합뉴스</span>
+                                <button>8</button>
+                            </div>
+                            <div class="article_detail3_right_line">
+                                <span>'우승후보' KCC, 외국선수 구성 완료... 'KB'</span>
+                                <span class="article_detail3_right_line2">·스타뉴스</span>
+                                <button>5</button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div id="article_detail4">
+                        <img src="./images/arrow_left.png" alt="왼쪽 화살표">
+                        <span id="sport_news_text">스포츠 소식</span>
+                        <span id="more_text">더보기</span>
+                        <span id="curr_page_text">1</span>
+                        <span id="total_page_text">/3</span>
+                        <img src="./images/arrow_right.png" alt="오른쪽 화살표">
+                    </div>
+                </article>
+
+
+            </div>
+            <aside>사이드 메뉴</aside>
+        </div>
+        <footer>사이트 아랫 부분</footer>
+    </div>
+</body>
+</html>
