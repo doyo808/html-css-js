@@ -1,0 +1,206 @@
+#hello {
+    color: red;
+    font-size: 50px;
+}
+
+@media screen and (max-width: 1200px) {
+    #hello {
+        color: blue;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #hello {
+        color: green;
+    }
+}
+
+@media print {
+    #hello {
+        color: purple;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    #hello {
+        font-size: 5vw;
+    }
+}
+
+#menu_div {
+    display: flex;
+    flex-direction: row;
+}
+@media screen and (max-width: 550px) {
+    #menu_div {
+        flex-direction: column;
+    }
+}
+
+
+
+
+
+
+* {
+    box-sizing: border-box;
+}
+body {
+    margin-bottom: 100px;
+}
+
+
+#container_main {
+    width: 1000px;
+    height: 600px;
+    padding: 30px;
+}
+#container_1 {
+    display: flex;
+    height: 70px;
+    font-size: 30px;
+    font-weight: 500;
+}
+    #container_1 #lightbulb {
+        margin-right: 10px;
+        width: 50px;
+        height: 50px;
+    }
+
+#container_2 {
+    height: 350px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 12px;
+    row-gap: 12px;
+}
+    #container_2 .iconBox {
+        width: 468px;
+        height: 110px;
+        background-color: #f3f3f3;
+        border-radius: 20px;
+        padding: 0 36px;
+    }
+    .iconBox::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+        #container_2 .iconBox_name {
+            float: left;
+            font-size: 17px;
+            font-weight: 700; 
+            margin: 43px 0 0 0;
+        }
+        #container_2 .icons {
+            float: right;
+            margin: 33px 0 0 0;
+        }
+        #container_2 .icon {
+            width: 45px;
+            height: 45px;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+        #container_2 .plus {
+            width: 44px;
+            height: 44px;
+            background-image: url("../images/카카오/plus.png");
+            background-size: cover;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        #container_2 .plus:hover {
+            background-image: url("../images/카카오/plus_black.png");
+        }
+
+#container_3 {
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+    margin-top: 15px;
+}
+    #container_3 #viewAll_btn {
+        width: 275px;
+        height: 55px;
+        background-color: #f3f3f3;
+        border-radius: 50px;
+        border: none;
+        font-size: 16px;
+        font-weight: 700px;
+        cursor: pointer;
+    }
+    #container_3 #arrow {
+        font-size: 17px;
+    }
+
+@media screen and (max-width: 1024px) {
+    #container_main {
+        width: 790px;
+    }
+    #container_2 {
+        column-gap: 0;
+        row-gap: 0;
+    }
+        #container_2 .iconBox {
+            width: 350px;
+            height: 108px;
+            padding: 0 25px;
+        }
+        #container_2 .last {
+            display: none;
+        }
+    #container_3 {
+        margin-top: 0;
+    }
+}
+
+@media screen and (max-width: 770px) {
+    #container_main {
+        width: 455px;
+    }
+
+    #container_1 {
+        font-size: 24px;
+    }
+        #container_1 #lightbulb {
+            display: none;
+        }
+    
+
+        #container_2 .iconBox {
+            width: 185px;
+            height: 127px;
+            padding: 0;
+            margin-bottom: 10px;
+
+            position: relative;
+        }
+            #container_2 .iconBox_name {
+                float: none;
+                font-size: 15px;
+
+                position: absolute;
+                top: 22px;
+                left: 18px;
+                margin: 0;
+            }
+            #container_2 .icons {
+                float: none;
+                position: absolute;
+                top: 60px;
+                left: 18px;
+                margin: 0;
+            }
+    
+    #container_3 {
+        margin-top: 35px;
+    }
+        #container_3 #viewAll_btn {
+            width: 380px;
+            height: 45px;
+
+            margin-left: -15px;
+        }
+}
