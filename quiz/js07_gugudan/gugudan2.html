@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #gugudan2 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            column-gap: 10px;
+            row-gap: 10px;
+        }
+
+        #gugudan2 > div {
+            background-color: orange;
+            border-radius: 20px;
+            padding: 15px;
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body>
+    
+    <h3>구구단</h3>
+
+    <div id="gugudan2">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <script>
+        const gugudan = document.getElementById('gugudan2');
+        const gugudanDivs = document.querySelectorAll('#gugudan2 > div');
+        for (let i = 0; i < gugudanDivs.length; ++i) {
+            const guguDiv = gugudanDivs[i];
+
+            const dan = i + 2;
+            for (let gop = 1; gop <= 9; ++gop) {
+                guguDiv.innerHTML += `${dan} x ${gop} = ${dan * gop}<br>`;
+            }
+        }
+    </script>
+</body>
+</html>

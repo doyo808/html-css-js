@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .dan {
+            width: 110px;
+            height: 330px;
+            padding: 5px;
+            border-radius: 10px;
+            background-color: lightsalmon;
+            box-shadow: 1px 1px white,
+                        3px 3px 3px lightsalmon;
+        }
+        .dan2 {
+            background-color: lightpink;
+            box-shadow: 1px 1px white,
+                        3px 3px 3px lightpink;
+        }
+        .dan .title {
+            width: 100px;
+            height: 20px;
+        }
+        .dan .result {
+            width: 100px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 자바스크립트만 사용하여 gugudan 내부에 2~9 단의 구구단을 채워보기 -->
+    <h3>구구단</h3>
+
+    <div id="gugudan"></div>
+
+    <script>
+        const gugudan = document.getElementById('gugudan');
+
+        // 구구단 곱 결과를 모으는 곳
+        function getResult(number) {
+            let result = '<div class="result">';
+
+            for (let i = 1; i <= 9; i++) {
+                result += number + ' x ' + i + ' = ' + number*i + '<br>';
+            }
+            result += '</div>'
+            return result ;
+        }
+
+        // 단 제목을 붙여 하나의 단으로 만드는 곳
+        function getDan(number) {
+            let title = '<div class="title">' + number +'단</div>';
+            return '<div class="dan">' + title + getResult(number) + '</div>';
+        };
+        
+        // 모든 단을 모으는 곳
+        let total = '';
+        for (let i = 2; i <= 9; i++) {
+            total += getDan(i);
+        }
+        gugudan.innerHTML = total;
+
+        // 스타일적용
+        gugudan.style.display = 'grid';
+        gugudan.style.gridTemplateColumns = '1fr 1fr 1fr 1fr';
+        gugudan.style.width = 'auto';
+        gugudan.style.height = 'auto';
+
+        const dans = document.getElementsByClassName('dan');
+        for (let i = 0; i < dans.length; i++) {
+            let dan = dans[i];
+            if (i % 2 == 0) { dan.classList.add('dan2'); }
+            dan.style.textAlign = 'center';
+            dan.style.height = 'auto';
+            dan.style.margin = '10px 0 10px 20px';
+        }
+
+        const titles = document.getElementsByClassName('title');
+        for (const title of titles) {
+            title.style.height = '40px';
+            title.style.lineHeight = '28px';
+            title.style.fontSize = '20px';
+            title.style.fontWeight = '600';
+            title.style.padding = '5px';
+        }
+
+        const results = document.getElementsByClassName('result');
+        for (const result of results) {
+            result.style.padding = '10px 15px';
+            result.style.height = 'auto';
+            result.style.textAlign = 'left';
+        }
+
+    </script>
+</body>
+</html>

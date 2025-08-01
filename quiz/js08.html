@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text">
+    <button type="submit">제출</button>
+    
+    <script>
+    
+        // # 다음 함수를 정의하고 올바르게 동작하는지 테스트 해보세요
+        
+
+        // 1. 전달한 문자가 알파벳이면 true를 반환, 아니면 false를 반환하는 함수
+        function isAlphabet(String) {
+            if (String.length > 1) return false;
+            return (String.toLowerCase() >= 'a' && String.toLowerCase() <= 'z');
+        }
+        const isAlphabetArrow = String => String.length === 1 
+            && String.toLowerCase() >= 'a' && String.toLowerCase() <= 'z';
+
+        console.log('1번: ' + isAlphabet('a'));
+        console.log(isAlphabetArrow('a'));
+
+        // 2. 전달한 숫자가 3의 배수이면 true를 반환, 아니면 false를 반환하는 함수
+        function isMultipleOf3(number) {
+            return (Number.isInteger(number) && number % 3 == 0);
+        }
+        const isMultipleOf3Arrow = number => Number.isInteger(number) && number % 3 == 0;
+
+        console.log('2번: ' + isMultipleOf3(3));
+        console.log(isMultipleOf3Arrow(4));
+
+        // 3. 숫자를 하나 전달하면 문자열 "짝수입니다" 또는 "홀수입니다"를 반환하는 함수
+        function evenOrOdd(number) {
+            if (!Number.isInteger(number)) return "숫자를 입력";
+            return ( number % 2 !== 0 ? "홀수입니다" : "짝수입니다" )
+        }
+        const evenOrOddArrow = number => a % 2 !== 1 ? '짝수' : '홀수';
+        console.log(evenOrOdd(1));
+        
+        // 4. 숫자를 전달하면 해당 숫자의 모든 약수를 int[]로 반환하는 함수
+        function getAllDivs(number) {
+            if (!Number.isInteger(number)) return [];
+            
+            let arr1 = [];
+            
+            for (let i = 1; i * i <= number; i++) {
+                if (number % i === 0) {
+                    arr1.push(i);
+
+                    if (i * i !== number) {
+                        arr1.push(number / i);
+                    }
+                }
+            }
+            return arr1.sort( (a, b) => a - b );
+        }
+        console.log(getAllDivs(16));
+
+        // 5. 전달한 정수가 소수라면 true를 반환하고 아니면 false를 반환하는 함수
+        function isPrime(number) {
+            if (!Number.isInteger(number)) return "숫자를 입력";
+            return (getAllDivs(number).length == 2 ? true : false);
+        }
+        console.log(isPrime(5));
+
+        // 6. 메세지와 횟수를 전달하면 해당 메세지를 전달한 횟수만큼 반복하는 함수
+        function repeat(msg, number) {
+            let tmp = msg;
+            for (let i = 0; i < number - 1; i++) {
+                msg += tmp;
+            }
+            return msg;
+        }
+        console.log(repeat('안녕', 3));
+    </script>
+
+</body>
+</html>
