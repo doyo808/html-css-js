@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            margin: 10px;
+        }
+        th, td {
+            min-width: 40px;
+            text-align: center;
+        }
+        .under60 {
+            color: red;
+        }
+        .over60 {
+            color: black;
+        }
+        .name_col {
+            width: 60px;
+        }
+        .star_col {
+            width: 110px;
+        }
+    </style>
+    <script src="https://kit.fontawesome.com/df2bfc0a98.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    
+    <table id="table1" border="2">
+        <caption>테이블1</caption>
+        <tr>
+            <th>학번</th>
+            <th class="name_col">이름</th>
+            <th>국어</th>
+            <th>영어</th>
+            <th>수학</th>
+            <th class="star_col">만족도</th>
+        </tr>
+    </table>
+    
+    <table id="table2" border="2">
+        <caption>테이블2</caption>
+        <tr>
+            <th>과목</th>
+            <th>국어</th>
+            <th>영어</th>
+            <th>수학</th>
+        </tr>
+        <tr>
+            <th>평균점수</th>
+            <td id="kor_avg" class="score">0</td>
+            <td id="eng_avg" class="score">0</td>
+            <td id="math_avg" class="score">0</td>
+        </tr>
+    </table>
+
+    <table id="table3" border="2">
+        <caption>테이블2</caption>
+         <tr>
+            <th>학번</th>
+            <th class="name_col">이름</th>
+            <th>국어</th>
+            <th>영어</th>
+            <th>수학</th>
+            <th class="star_col">만족도</th>
+        </tr>
+    </table>
+
+    <script>
+    /*
+        (1) 학번, 이름, 국어, 영어, 수학, 수업 만족도(별 0 ~ 5)를 가진 학생 100명의
+        자바스크립트 오브젝트를 랜덤으로 생성하기
+        (2) 모든 학생들의 정보를 HTML에 테이블 형태로 출력하기
+            (60점 미만인 점수는 빨간 글씨로 출력하기, 수업 만족도는 별의 개수로 출력하기)
+        (3) 모든 학생들의 평균 점수를 테이블 형태로 출력하기
+        (4) 수학 점수가 60점 미만인 학생들로 이루어진 테이블 HTML에 출력하기
+        (5) 2번 문제의 마지막 행에는 각 열의 총합과 평균을 출력하기 (학번, 이름 열 제외)
+    */
+   
+    // 랜덤이름 생성기
+    const name1 = ['김', '이', '박', '최'];
+    const name2 = ['오', '이', '아', '구', '고', '기'];
+    const name3 = ['소', '말', '양', '개', '뱀'];
+    function generateRanName() {
+        let ran1 = name1[ Math.floor(Math.random()*name1.length) ];
+        let ran2 = name2[ Math.floor(Math.random()*name2.length) ];
+        let ran3 = name3[ Math.floor(Math.random()*name3.length) ];
+        return ran1+ran2+ran3;
+    }
+
+    // 100명 랜덤 오브젝트 생성
+    const students = [];
+    const numberOfStu = 10;
+
+    for (let i = 0; i < numberOfStu; i++) {
+        students[i] = {
+            id: i+1,
+            name: generateRanName(),
+            kor: Math.floor(Math.random() * 100 + 1),
+            eng: Math.floor(Math.random() * 100 + 1),
+            math: Math.floor(Math.random() * 100 + 1),
+            star: Math.floor(Math.random() * 6)
+        }
+    }
+    const kor_total = students.reduce((acc, curr) => {
+        return acc + curr.kor;
+    }, 0);
+    const eng_total = students.reduce((acc, curr) => {
+        return acc + curr.eng;
+    }, 0);
+    const math_total = students.reduce((acc, curr) => {
+        return acc + curr.math;
+    }, 0);
+    const star_total = students.reduce((acc, curr) => {
+        return acc + curr.star;
+    }, 0);
+
+    // 테이블에 표시하기
+    const table1 = document.getElementById('table1');
+    students.forEach( student => {
+        table1.innerHTML += 
+            `<tr>
+                <td>${student.id}</td>
+                <td>${student.name}</td>
+                <td class='score'>${student.kor}</td>
+                <td class='score'>${student.eng}</td>
+                <td class='score'>${student.math}</td>
+                <td class='stars'>${student.star}</td>
+            </tr>`;
+        }
+    );
+    // for (let i = 0; i < numberOfStu; i++) {
+    //     table1.innerHTML += 
+    //         `<tr>
+    //             <td>${students[i].id}</td>
+    //             <td>${students[i].name}</td>
+    //             <td class='score'>${students[i].kor}</td>
+    //             <td class='score'>${students[i].eng}</td>
+    //             <td class='score'>${students[i].math}</td>
+    //             <td class='stars'>${students[i].star}</td>
+    //         </tr>`;
+    // }
+
+    // 총합과 평균을 출력
+    table1.innerHTML += 
+            `<tr>
+                <th rowspan='2'>계</th> 
+                <td>총합</td>
+                <td>${kor_total}</td> 
+                <td>${eng_total}</td>
+                <td>${math_total}</td>
+                <td>${star_total}</td>
+            </tr>
+            <tr>
+                <td>평균</td>
+                <td>${(kor_total/numberOfStu).toFixed(1)}</td> 
+                <td>${(eng_total/numberOfStu).toFixed(1)}</td>
+                <td>${(math_total/numberOfStu).toFixed(1)}</td>
+                <td class='stars'>${(star_total/numberOfStu).toFixed(1)}</td>
+            </tr>`;
+
+
+    // 평균점수를 테이블로
+    const kor_avg = document.getElementById('kor_avg');
+    kor_avg.innerText = (kor_total / students.length).toFixed(1);
+    const eng_avg = document.getElementById('eng_avg');
+    eng_avg.innerText = (eng_total / students.length).toFixed(1);
+    const math_avg = document.getElementById('math_avg');
+    math_avg.innerText = (math_total / students.length).toFixed(1);
+
+
+    // 수학점수 60점 미만 학생 테이블
+    const table3 = document.getElementById('table3');
+    const studentsMathUnder60 = students.filter(stu => stu.math < 60);
+    for (let i = 0; i < studentsMathUnder60.length; i++) {
+            table3.innerHTML += 
+            `<tr>
+                <td>${studentsMathUnder60[i].id}</td>
+                <td>${studentsMathUnder60[i].name}</td>
+                <td class='score'>${studentsMathUnder60[i].kor}</td>
+                <td class='score'>${studentsMathUnder60[i].eng}</td>
+                <td class='score'>${studentsMathUnder60[i].math}</td>
+                <td class='stars'>${studentsMathUnder60[i].star}</td>
+            </tr>`;
+    }
+
+
+    // 60점 미만일 경우 붉은색으로
+    const scores = document.querySelectorAll('.score');
+    for (const score of scores) {
+        if (score.innerText < 60) {
+            score.classList.add('under60');
+        }
+    }
+    // 만족도를 별로
+    const stars = document.querySelectorAll('.stars');
+    for (const star of stars) {
+        let count = Math.floor(star.innerText);
+        let count2 = star.innerText - count;
+        
+        star.innerHTML = `<i class="fa-solid fa-star" style="color:gold"></i>`.repeat(count);
+        
+        if (count2 >= 0.25 && count2 < 0.75) {
+            star.innerHTML += `<i class="fa-solid fa-star-half" style="color:gold"></i>`;
+        } else if (count2 >= 0.75) {
+            star.innerHTML += `<i class="fa-solid fa-star" style="color:gold"></i>`;
+        }
+
+    }
+    
+    </script>
+</body>
+</html>

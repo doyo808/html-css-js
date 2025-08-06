@@ -19,18 +19,18 @@
         console.log(a === b);
 
         // 이상한 숫자들
-        console.log(NaN);      // 숫자가 아니라는 숫자 타입의 값
+        console.log(NaN);        // 숫자가 아니라는 숫자 타입의 값
         console.log('10a' * 3);
-        console.log(typeof NaN);
+        console.log(typeof NaN); // number
         
         
         console.log(Infinity); // 무한을 뜻하는 숫자 타입의 값
         console.log(10 / 0);
-        console.log(typeof Infinity);
+        console.log(typeof Infinity); // number
 
         let c;
         console.log(c);
-        console.log(10 / undefined);
+        console.log(10 / undefined); // undefined
 
         // 진법 리터럴
         console.log(123);   // 10진수 123
@@ -98,16 +98,17 @@
             let arr = [];
             while (arr.length < 6) {
                 let num = Math.floor(Math.random() * 45 + 1);
-                let hasDup = false;
+                // let hasDup = false;
                 
-                for (let j = 0; j < arr.length; j++) {
-                    if (arr[j] === num) {
-                        hasDup = true;
-                        break;
-                    }
-                }
+                // for (let j = 0; j < arr.length; j++) {
+                //     if (arr[j] === num) {
+                //         hasDup = true;
+                //         break;
+                //     }
+                // }
 
                 if (!arr.includes(num)) { arr.push(num); }
+                else { console.log('중복발생!', num); }
             }
             return arr.sort((a, b) => a - b);
         }

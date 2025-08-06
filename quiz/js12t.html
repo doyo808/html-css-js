@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        th {
+            background-color: peru;
+        }
+        .red {
+            color: red;
+        }
+        table, tr, td, th {
+            margin: 10px;
+            border: 2px solid black;
+            border-collapse: collapse;
+        }
+        td.name {
+            font-style: italic;
+            width: 60px;
+            text-align: center;
+        }
+        caption::before {
+            content: "<<"
+        }
+        caption::after {
+            content: ">>"
+        }
+    </style>
+</head>
+<body>
+
+    <table id="basic_info_table">
+        <caption>기본 학생 정보</caption>
+        <thead>
+            
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+    <table id="avg_info_table">
+        <caption>평균 점수 정보</caption>
+        <thead></thead>
+        <tbody></tbody>
+    </table>
+
+    <table id="math_failure_table">
+        <caption>수학 낙제자 정보</caption>
+        <thead></thead>
+        <tbody></tbody>
+    </table>
+
+    <script>
+        // 이름생성
+        const names1 = ['김', '이', '박'];
+        const names2 = ['구은', '남영', '눔닌', '성민', '서민'];
+        const getRandomNameFrag = candidates => 
+                    candidates[parseInt(Math.random() * candidates.length)];
+        const getRandomName = () => getRandomNameFrag(names1) + getRandomNameFrag(names2);
+
+        // 점수 생성
+        const getRandomScore = () => parseInt(Math.random() * 101);
+        const getRandomStar = () => parseInt(Math.random() * 6);
+
+        // id생성
+        const getPaddedNum = (num, size) => {
+            let paddedResult = num.toString();
+
+            for (let i = num.toString().length; i < size; ++i) {
+                paddedResult = '0' + paddedResult;
+            }
+            // console.log(`숫자가 ${num}이고 원하는 크기가 ${size}일때
+            //     0을 채운 결과는 ${paddedResult}`);
+            return paddedResult;
+        };
+        let stu_count = 0;
+        const getStuNum = () => `STU${getPaddedNum(stu_count++, 5)}`;
+
+        // 학생배열
+        const stus = [];
+        for (let i = 0; i < 10; i++) {
+            stus.push({
+                id: getStuNum(),
+                name: getRandomName(),
+                kor: getRandomScore(),
+                eng: getRandomScore(),
+                math: getRandomScore(),
+                star: getRandomStar()
+            });
+        }
+
+        // 행추가 메서드
+        const addRow = (tableId, data, part) => {
+            const partElement = document.querySelector(`#${tableId} > ${part}`);
+
+            let row = '<tr>';
+
+            if (part === 'thead') {
+                for (key in data) {
+                    row += `<th class='${key}'>${key}</th>`;
+                }
+            } else {
+                for (key in data) {
+
+                    if (key === 'math' || key === 'eng' || key === 'kor') {
+                        const score = data[key];
+                        row += `<td class='${key} ${score < 60 ? 'red' : ''}'>${score}</td>`;
+
+                    } else if (key === 'star') {
+                        const starLen = data[key];
+                        row += `<td class='${key}'>`;
+                            for (let i = 0; i < starLen; ++i) {
+                                row += '★';
+                            }
+                            for (let i = starLen; i < 5; ++i) {
+                                row += '☆';
+                            }
+                            row += '</td>';
+
+                    } else {
+                        row += `<td class='${key}'>${data[key]}</td>`;
+                    }
+                }
+            }
+            
+            row += '</tr>'
+            console.log(row);
+            partElement.innerHTML += row;
+        };
+
+        // 테이블에 추가
+        const addBodyRow = (tableId, data) => addRow(tableId, data, 'tbody');
+        const addHeadRow = (tableId, data) => addRow(tableId, data, 'thead');
+
+        stus.forEach( (stu, index) => {
+            const tableId = 'basic_info_table';
+            if (index == 0) {
+                addHeadRow(tableId, stu);
+            }
+            addBodyRow(tableId, stu)
+        });
+
+        // 평균 테이블
+        stus.map(stu => ({
+            학번: stu.id,
+            이름: stu.name,
+            평균점수: Math.round((stu.kor + stu.eng + stu.math) / 3 * 100) / 100
+        })).forEach( (stu, index) => {
+            const tableId = 'avg_info_table';
+            if (index == 0) {
+                addHeadRow(tableId, stu);
+            }
+            addBodyRow(tableId, stu);
+        });
+
+        // 수학점수
+        stus.filter(stu => stu.math < 60)
+            .map(stu => ({
+            학번: stu.id,
+            낙제자: stu.name,
+            수학점수: stu.math
+        })).forEach( (stu, index) => {
+            const tableId = 'math_failure_table';
+
+            if (index == 0) {
+                addHeadRow(tableId, stu);
+            }
+            addBodyRow(tableId, stu);
+        })
+
+
+        // 평균, 총합 출력
+        document.querySelector('#basic_info_table > tbody')
+            .innerHTML += 
+            `<tr> 
+                <td colspan="2">총합</td>    
+                <td>${stus.reduce((acc, curr) => acc + curr.kor, 0)}</td>
+                <td>${stus.reduce((acc, curr) => acc + curr.eng, 0)}</td>
+                <td>${stus.reduce((acc, curr) => acc + curr.math, 0)}</td>
+                <td>${stus.reduce((acc, curr) => acc + curr.star, 0)}</td>
+            </tr>
+            <tr>
+                <td colspan="2">평균</td>
+                <td>${stus.reduce((acc, curr) => acc + curr.kor, 0) / stus.length}</td>
+                <td>${stus.reduce((acc, curr) => acc + curr.eng, 0) / stus.length}</td>
+                <td>${stus.reduce((acc, curr) => acc + curr.math, 0) / stus.length}</td>
+                <td>${stus.reduce((acc, curr) => acc + curr.star, 0) / stus.length}</td>
+            </tr>`;
+    </script>
+</body>
+</html>

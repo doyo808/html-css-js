@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1 {
+            border: 3px solid black;
+            width: 100px;
+            height: 100px;
+        }
+        #box1.red {
+            background-color: red;
+        }
+
+        /* 틱택토 */
+        #tic-tac-toe {
+            box-sizing: border-box;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            width: 300px;
+            margin: 20px;
+            margin-bottom: 200px;
+        }
+            #tic-tac-toe .sub {
+                box-sizing: border-box;
+                border: 1px solid gold;
+                width: 100px;
+                height: 100px;
+                background-color: #240060;
+            }
+            #tic-tac-toe .O {
+                background-image: url(./sheets/O.png);
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+            #tic-tac-toe .X {
+                background-image: url(./sheets/X.png);
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+            #tic-tac-toe #reset {
+                height: 50px; 
+            }
+            #tic-tac-toe #message {
+                background-color: #f0f0f0;
+                border: 1px solid black;
+                height: 48px;
+                line-height: 48px;
+                text-align: center;
+                color: red;
+            }
+    </style>
+</head>
+<body>
+    <h3># HTML의 이벤트 속성</h3>
+
+    <ul onclick="let count = Math.random() * 10; 
+        console.log(`!!랜덤값은 ${count.toFixed(0)}!!`)">
+        <li>
+            앞에 on이 붙는 HTML속성들은 자바스크립트 이벤트 속성이다
+            (onclick, onmouseover, onkeydown, onfocus, onmouseleave ...)
+        </li>
+        <li>
+            해당 이벤트 속성에 콜백을 달아두면 이벤트 정보를 담고 있는 이벤트 객체가 넘어오면서
+            이벤트가 발생하게 된다
+        </li>
+        <li>해당 요소의 HTML속성에는 자바스크립트 문법을 값으로 사용할 수 있다</li>
+        <li>
+            또는 해당 요소를 자바스크립트에서 선택하여 addEventListener() 메서드를 통해
+            해당 이벤트에 대한 콜백 함수를 추가해 둘 수 있다
+        </li>
+    </ul>
+
+    <div id="box1"></div>
+
+    <div id="tic-tac-toe">
+        <div id='sub1' class="sub"></div>
+        <div id='sub2' class="sub"></div>
+        <div id='sub3' class="sub"></div>
+        <div id='sub4' class="sub"></div>
+        <div id='sub5' class="sub"></div>
+        <div id='sub6' class="sub"></div>
+        <div id='sub7' class="sub"></div>
+        <div id='sub8' class="sub"></div>
+        <div id='sub9' class="sub"></div>
+        <button id="reset">초기화</button>
+        <button id="back">되돌리기</button>
+        <div id="message"></div>
+    </div>
+    <script>
+        const box = document.getElementById('box1');
+
+        box.addEventListener('mouseover', (e) => {
+            // console.log(e);
+
+            box.classList.toggle('red');
+        });
+        box.addEventListener('mouseleave', (e) => {
+            box.classList.toggle('red');
+        });
+
+        // 연습: id가 tic-tac-toe인 요소를 클릭할 때마다 O와 X가 번갈아가면서 하나씩 생기게 만들기
+        //      (단, 이미 O또는 X가 생성된 칸은 바꿀 수 없음)
+        // 연습2: 초기화 버튼을 누르면 모든 단계가 초기화되고 다시 클릭을 진행 할 수 있게 만들어보세요
+        
+        const symbols = ['O', 'X'];
+        const message = document.getElementById('message');
+        let lastClickeds = [];
+        let turn = 0;
+        let victory = false;
+
+        const subs = document.getElementsByClassName('sub');
+        for (let sub of subs) {
+            sub.addEventListener('click', () => {
+
+                if (sub.classList.contains('O') || sub.classList.contains('X')) {
+                    message.textContent = '이미 클릭함!';
+                } else if (victory) {
+                    alert('게임종료!');
+                } else {
+                    sub.classList.add(symbols[turn % 2]);
+                    lastClickeds[lastClickeds.length] = sub;
+                    message.textContent = '';
+
+                    checkWin(subs, 'O');
+                    checkWin(subs, 'X');
+
+                    turn++;
+                    
+                    if (turn === 9 && !victory) {
+                        alert('무승부!');
+                        message.textContent = '무승부!';
+                    }
+                }
+            })
+        }
+
+        // 리셋버튼
+        const reset = document.getElementById('reset');
+        reset.addEventListener('click', () => {
+            for (let sub of subs) {
+                for (let i = 0; i < symbols.length; i++) {
+                    sub.classList.remove(symbols[i]);
+                }
+            }
+            turn = 0;
+            victory = false;
+            lastClickeds = [];
+            message.textContent = '초기화됨!';
+
+            setTimeout(() => {
+                message.textContent = '';
+            }, 2000); // 2초 후 지우기
+        });
+
+        
+        // 되돌리기버튼
+        const back = document.getElementById('back');
+        back.addEventListener('click', () => {
+            if (lastClickeds.length === 0) {
+                message.textContent = '되돌릴게 없음!';
+            } else {
+                const temp = lastClickeds.pop();
+                temp.classList.remove('O');
+                temp.classList.remove('X');
+                turn--;
+                victory = false;
+                message.textContent = '되돌리기!';
+            }
+        });
+
+
+        // 승리로직
+        const winArrs = [
+            [0, 1, 2], [3, 4, 5], [6, 7, 8],
+            [0, 3, 6], [1, 4, 7], [2, 5, 8],
+            [0, 4, 8], [2, 4, 6]
+        ];
+
+        function checkWin2(subs, symbol) {
+
+            for (let j = 0; j < winArrs.length; j++) {
+                let arr = winArrs[j];
+                let tempVic = true;
+
+                for (let i = 0; i < arr.length; i++) {
+                    if (!subs[i].classList.contains(symbol)) {
+                        tempVic = false;
+                    }
+                }
+                if (tempVic) {
+                    message.textContent = `${symbol} 승리!`;
+                        alert(`${symbol} 승리!`);
+                        victory = true;
+                }
+            }
+        }
+        // function checkWinner() {
+        //     const lines = [
+        //         [0,1,2], [3,4,5], [6,7,8], // 가로
+        //         [0,3,6], [1,4,7], [2,5,8], // 세로
+        //         [0,4,8], [2,4,6]           // 대각선
+        //     ];
+
+        //     for (let [a,b,c] of lines) {
+        //         if (
+        //             subs[a].classList.contains(symbols[turn % 2]) &&
+        //             subs[b].classList.contains(symbols[turn % 2]) &&
+        //             subs[c].classList.contains(symbols[turn % 2])
+        //         ) {
+        //             message.textContent = `${symbols[turn % 2]} 승리!`;
+        //             return true;
+        //         }
+        //     }
+        //     return false;
+        // }
+
+        
+
+        function checkWin(subs, symbol) {
+            if (
+            (
+               subs[0].classList.contains(symbol) 
+            && subs[1].classList.contains(symbol)
+            && subs[2].classList.contains(symbol)
+            ) || (
+               subs[3].classList.contains(symbol) 
+            && subs[4].classList.contains(symbol)
+            && subs[5].classList.contains(symbol)
+            ) || (
+               subs[6].classList.contains(symbol) 
+            && subs[7].classList.contains(symbol)
+            && subs[8].classList.contains(symbol)
+            ) || (
+               subs[0].classList.contains(symbol) 
+            && subs[3].classList.contains(symbol)
+            && subs[6].classList.contains(symbol)
+            ) || (
+               subs[1].classList.contains(symbol) 
+            && subs[4].classList.contains(symbol)
+            && subs[7].classList.contains(symbol)
+            ) || (
+               subs[2].classList.contains(symbol) 
+            && subs[5].classList.contains(symbol)
+            && subs[8].classList.contains(symbol)
+            ) || (
+               subs[0].classList.contains(symbol) 
+            && subs[4].classList.contains(symbol)
+            && subs[8].classList.contains(symbol)
+            ) || (
+               subs[2].classList.contains(symbol) 
+            && subs[4].classList.contains(symbol)
+            && subs[6].classList.contains(symbol)
+            )
+        
+        ) {
+                message.textContent = `${symbol} 승리!`;
+                alert(`${symbol} 승리!`);
+                victory = true;
+            }
+        }
+
+    </script>
+</body>
+</html>
