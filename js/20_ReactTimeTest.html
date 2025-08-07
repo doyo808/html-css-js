@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/react_test.css">
+     
+</head>
+<body>
+    <div>
+        <div id="header-title">반응속도 테스트 - 프로게이머 평균 150ms</div>
+        <div id="progress-bar">
+            <div id="progress-text">0/5</div>
+            <div id="progress-box">
+                <div id="box1"></div>
+                <div id="box2"></div>
+                <div id="box3"></div>
+                <div id="box4"></div>
+                <div id="box5"></div>
+            </div>
+        </div>
+    </div>
+    <div id="main">
+        <div></div>
+    </div>
+    
+
+    <div id="test-wait">
+        <div class="wait-message">
+            <div class="text">Wait...</div>
+            <div class="icon"></div>
+        </div>
+    </div>
+
+    <div id="test-wait-click">
+        <div class="wait-message">
+            <div class="text">Click!</div>
+            <div class="icon"></div>
+        </div>
+    </div>
+
+    <div id="test-clicked">
+        <div class="label">Your reaction time:</div>
+        <div class="record">
+            <div class="icon"></div>
+            <div class="millisec">300 ms</div>
+        </div>
+    </div>
+
+    <div id="test-record">
+        <div class = "title">
+            <div class="icon"></div>
+            <div class="title-text">Final Results</div>
+            <div class="icon"></div>
+        </div>
+        <div class="records">
+            <div class="avg-time">
+                <div class="label">Average time:</div>
+                <div class="icon"></div>
+                <div class="millisec">300ms</div>
+            </div>
+            <div class="best-time">
+                <div class="label">Best time:</div>
+                <div class="icon"></div>
+                <div class="millisec">277ms</div>
+            </div>
+            <div class="worst-time">
+                <div class="label">worst-time:</div>
+                <div class="icon"></div>
+                <div class="millisec">333ms</div>
+            </div>
+            <div id="try-again-button">Try Again</div>
+        </div>
+    </div>
+
+    <script src="./assets/js/react_test.js"></script>
+</body>
+</html>

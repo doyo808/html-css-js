@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            width: 500px;
+            height: 500px;
+            font-size: 30px;
+
+            border: 1px solid black;
+        }
+        #box > div {
+            display: block;
+            margin: 5px 0;
+        }
+
+        .init {
+            background-color: lightseagreen;
+        }
+        .wait {
+            background-color: salmon;
+        }
+        .click {
+            background-color: lightskyblue;
+        }
+        .result {
+            background-color: lightseagreen;
+        }
+        .final {
+            background-color: lightgray;
+        }
+        .failed {
+            background-color: salmon;
+        }
+    </style>
+</head>
+<body>
+    
+    <h3># Web Storage API</h3>
+
+    <ul>
+        <li>자바스크립트로 웹 브라우저에 데이터를 보관할 수 있는 공간</li>
+        <li>데이터를 key/value 형태로 보관해놓을 수 있다</li>
+        <li>로컬 스토리지와 세션 스토리지가 있다</li>
+        <li>로컬 스토리지는 웹 브라우저를 종료하더라도 데이터가 쭉 유지된다</li>
+        <li>세션 스토리지는 웹 브라우저가 켜져 있는 동안만 데이터가 유지된다</li>
+        <li>데이터는 문자열 형태로 저장된다</li>
+    </ul>
+
+    <div id="box" class="init">
+        <div id="title">반응속도 테스트</div>
+    </div>
+
+    <script>
+        // 연습문제: 반응속도 테스트기 만들기(아이디로 기록저장)
+        
+        // 상태바 만들기
+        // 너무빨리누르면 처음으로 돌아감: 버그발생(초기화안되고, 텍스트도 버그)
+        // 게임종료 후 다시 시작할 때 버그
+        // 초기화 문제(텍스트, 결과시간배열, 평균 등) -> 메서드화 필요
+        // 웹스토리지 활용하기
+        
+
+        const box = document.getElementById('box');
+        const title = document.getElementById('title');
+        let status = 'init';
+        let count = 0;
+        let targetCount = 2;
+        let startTime = Date.now();
+        let endTime = Date.now();
+        let timeout = null;
+        let resultTimes = [];
+        let avgTime = 0;
+        
+
+        function clickFn() {
+            if (status === 'init') {
+                return fnInit();
+            } else if (status === 'wait') {
+                return fnWait();
+            } else if (status === 'click') {
+                return fnClick();
+            } else if (status === 'result') {
+                return fnResult();
+            } else if (status === 'final') {
+                return fnFinal();
+            } else if (status === 'failed') {
+                return fnFailed();
+            } else {
+                console.log('이상한 상태');
+                return;
+            }
+        }
+
+        let textNode;
+        function attachTextNode(text) {
+            const newDiv = document.createElement('div');
+            const newTextNode = document.createTextNode(text);
+            newDiv.appendChild(newTextNode);
+            textNode = newDiv;
+            box.appendChild(newDiv);
+        }
+
+        function fnInit() {
+            box.classList = ['wait'];
+            status = 'wait';
+            box.removeChild(title);
+            // box.removeChild(textNode);
+            
+            attachTextNode(`wait ${count}/${targetCount}`);
+
+            timeout = window.setTimeout(()=>{
+                box.classList =['click'];
+                status = 'click';
+                box.removeChild(textNode);
+                attachTextNode('클릭!');
+                startTime = Date.now();
+            }, Math.floor(Math.random() * 1000 + 1000));
+        }
+        function fnWait() {
+            box.classList = ['failed'];
+            status = 'failed';
+            box.removeChild(textNode);
+            attachTextNode('너무빨리누름!');
+            window.clearTimeout(timeout);
+        }
+        function fnClick() {
+            box.classList = ['result'];
+            status = 'result';
+            box.removeChild(textNode);
+            window.clearTimeout(timeout);
+            endTime = Date.now();
+            resultTime = endTime - startTime;
+            resultTimes.push(resultTime);
+            attachTextNode(`${resultTime}ms`);
+        }
+        function fnResult() {
+            count++;
+            box.removeChild(textNode);
+            if (count == targetCount) {
+                box.classList = ['final'];
+                status = 'final';
+                resultTimes.sort((a, b) => a - b);
+                for (let times of resultTimes) {
+                    avgTime += times;
+                }
+                avgTime = avgTime/targetCount;
+                attachTextNode(`${count} / ${targetCount}`);
+                attachTextNode(`평균: ${avgTime.toFixed(0)}`);
+                attachTextNode(`최고: ${resultTimes[0]}`);
+                attachTextNode(`최악: ${resultTimes[targetCount-1]}`);
+
+
+            } else {
+                box.classList = ['wait'];
+                status = 'wait';
+                attachTextNode(`wait ${count}/${targetCount}`);
+
+                timeout = window.setTimeout(()=>{
+                    box.classList =['click'];
+                    status = 'click';
+                    box.removeChild(textNode);
+                    attachTextNode('클릭!');
+                    startTime = Date.now();
+                }, 1000);
+            }
+        }
+        function fnFinal() {
+            box.classList = ['init'];
+            status = 'init';
+        }
+        function fnFailed() {
+            count = 0;
+            box.classList = ['init'];
+            status = 'init';
+            box.removeChild(textNode);
+            attachTextNode('반응속도 테스트');
+        }
+
+        box.addEventListener('click', clickFn);
+
+
+
+
+        // 데이터 저장하기
+
+        // Javascript Object를 문자열 형태로 변환하여 보관하기 위해서
+        // JSON 형태의 문자열로 변환을 해야 한다
+        window.localStorage.setItem('score', 30000);
+        window.localStorage.setItem('nickname', '빽사이즈 아메리카노');
+        let jsonStr = JSON.stringify({
+            name: '홍길동',
+            age: 10,
+            score: 500
+        });
+        window.localStorage.setItem('userInfo', jsonStr);
+        
+        window.sessionStorage.setItem('login', true);
+        window.sessionStorage.setItem('lastAccessTime', Number(new Date()));
+
+        // 데이터 꺼내기 (꺼낸 데이터는 무조건 string 타입이다)
+        console.log(window.localStorage.getItem('score'));
+        console.log(typeof window.sessionStorage.getItem('lastAccessTime'));
+
+        // JSON 형식의 데이터 꺼내기
+        console.log(jsonStr = window.localStorage.getItem('userInfo'));
+        // JSON -> Object
+        const obj = JSON.parse(jsonStr);
+        for (let key in obj) {
+            console.log(`${key}: ${obj[key]}`);
+        }
+
+
+        
+    </script>
+
+</body>
+</html>

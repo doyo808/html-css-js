@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>상단바 연습</title>
+  <style>
+    /* 기본 초기화 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: sans-serif;
+      padding: 50px;
+    }
+
+    /* 상단바 wrapper */
+    .progress-bar-wrapper {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 20px;
+      background-color: lightgray;
+      z-index: 1000;
+    }
+
+    /* 실제 채워지는 부분 */
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background-color: skyblue;
+      transition: width 0.3s ease;
+    }
+
+    /* 버튼 (테스트용) */
+    .controls {
+      margin-top: 100px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 상단 프로그레스 바 -->
+  <div class="progress-bar-wrapper">
+    <div class="progress-fill" id="progressFill"></div>
+  </div>
+
+  <!-- 테스트용 버튼 -->
+  <div class="controls">
+    <button onclick="increaseProgress()">채우기</button>
+    <button onclick="resetProgress()">리셋</button>
+  </div>
+
+  <script>
+    const fill = document.getElementById('progressFill');
+    const maxSteps = 5;
+    let currentStep = 0;
+
+    function increaseProgress() {
+      if (currentStep < maxSteps) {
+        currentStep++;
+        const percent = (currentStep / maxSteps) * 100;
+        fill.style.width = `${percent}%`;
+      }
+    }
+
+    function resetProgress() {
+      currentStep = 0;
+      fill.style.width = '0%';
+    }
+  </script>
+
+</body>
+</html>
